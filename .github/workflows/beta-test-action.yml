@@ -19,4 +19,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm i
-      - run: npm run build:prod -- --env PUBLIC_HOST=${{ vars.CDN_PATH }}/${{ vars.CDN_PATH }}
+      - run: npm run build:prod -- --env PUBLIC_HOST=${{ secrets.CDN_PATH }}/${{ secrets.CDN_PATH }}
