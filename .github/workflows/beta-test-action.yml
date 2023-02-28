@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: cd packages/core/
       - run: pwd
       - run: npm i
       - run: npm run build:prod -- --env PUBLIC_HOST=https://abc.com/brizzy
