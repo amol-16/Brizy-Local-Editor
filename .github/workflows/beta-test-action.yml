@@ -1,0 +1,9 @@
+name: Beta Test Action
+on:
+  workflow_dispatch
+
+jobs:
+  run-echo:
+    runs-on:  ubuntu-latest
+    steps: 
+      - run: echo "Hello!, I have been triggered manually"
