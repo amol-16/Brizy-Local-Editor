@@ -18,10 +18,5 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: pwd
       - run: npm i
-      - run: npm run build:prod -- --env PUBLIC_HOST=${{ vars.CDN_PATH }}/${{ vars.BUCKET_NAME }}
-      - name: Upload build to S3
-      - run: ls
-        
-      # copy
+      - run: npm run build:prod -- --env PUBLIC_HOST=${{ vars.CDN_PATH }}/${{ vars.CDN_PATH }}
