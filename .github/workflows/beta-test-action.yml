@@ -3,7 +3,18 @@ on:
   workflow_dispatch
 
 jobs:
-  run-echo:
+  build:
     runs-on:  ubuntu-latest
-    steps: 
-      - run: echo "Hello!, I have been triggered manually"
+    strategy:
+      matrix:
+        node: [ 18 ]
+    name: Node ${{ matrix.node }} sample
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: cd packages/core/
+      - run: npm i
+      - run: npm run build:prod --env PUBLIC_HOST=https://abc.com/brizzy
